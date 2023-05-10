@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --text-color: rgb(255, 255, 255); /*cor do texto*/
+    --bg-url: url(imagens/abstrata-escura.jpg); /*imagem de fundo*/
+    --stroke-color: rgba(255, 255, 255, 0.5); /*cor das bordas*/
+    --surface-color: rgba(255, 255, 255, 0.05); /*cor de fundo dos elemento a*/
+    --surface-color-hover: rgba(255, 255, 255, 0.02); /*cor de fundo dos elemento a quando passar o mouse*/
+    --highlight-color: rgba(255, 255, 255, 0.2); /*cor de fundo dos icones das redes sociais*/
+    --switch-bg-url: url(imagens/moon-stars.svg);
+
+}
+.light{ /*mudando para os valores a seguir*/
+    --text-color: black;
+    --bg-url: url(imagens/abstrata-clara.jfif);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color:rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(imagens/sun.svg);
+}
+
+body{
+    background: var(--bg-url) no-repeat top center/cover;
+    
+}
+body *{
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+   
+}
+
+
+#container{
+    
+    width: 360px;
+    margin: auto;
+    padding-top: 56px;
+
+}
+/*profile*/
+#profile{
+    
+    text-align: center;
+    padding: 24px;
+    
+    
+}
+#profile img{
+    width: 112px;
+    background-color: rgb(218, 143, 6);
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    
+}
+#profile p {
+    font-weight: 500; /*PESO DA FONTE*/
+    line-height: 24px; /*ALTURA DA LINHA*/
+    margin-top: 8px;
+}
+/* switch */
+#switch{
+    
+    position: relative; /*o elemento so navegara dentro do nosso elemento switch, o position: relative; ele vai relativizar o position: absolute;*/
+    width: 64px;
+    margin: 4px auto;
+}
+#switch button{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: white var(--switch-bg-url) no-repeat center; /*colocando a cor do botão a imagem e algumas propreiedades para a img não ficar repetindo*/
+    border: 0;
+    position: absolute; /*quando coloca mos absolute o elemento pode navegar em toda a pagina atraves das propriedades abaixo*/
+    top: 50%; /*coloca o elemmento 50% do topo*/
+    left: 0; /*podemos movelo para onde quiser com rigth, top, left, e bottom*/
+    z-index: 1; /*1 joga o button para frente do switch todo e 0 joga para traz.*/
+    transform: translateY(-50%); /*move o elemento na vertical -50% ele sobe */
+    
+}
+.light #switch button{
+    right: 0;
+    left: initial;
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); /* -webkit- serve para que essa propriedade funcione em varios navegadores
+    Essa propriedade deixa o fundo embaçado.*/
+    border-radius: 99999px;
+}
+
+/* links */
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0px;
+}
+
+ul li a{
+    display: flex; /*deixando ul, li e os links flexiveis*/
+    padding: 16px 24px;
+    align-items: center; /*centro da linha horizontal*/
+    justify-content: center; /*centro da linha vertical*/
+   background: var(--surface-color);  
+   border: 1px solid var(--stroke-color);
+   border-radius: 8px;  
+   backdrop-filter: blur(4px); /*embaçamento dentro dos links*/
+   -webkit-backdrop-filter: blur(4px);
+   text-decoration: none;
+   font-weight: 500;
+   transition: all .2s;
+}
+
+ /* pseudo-selector */
+ ul li a:hover{
+    background-color: var(--surface-color-hover);  
+    border: 1.5px solid var(--text-color);
+}
+#social-links{
+    display: flex; /*deixa os elementos flexiveis*/
+    justify-content: center; /*cetraliza no meio da linha vertical*/
+    padding: 24px 0px; /*espaco entre o conteudo e a borda*/
+    font-size: 24px; /*tamanho da font*/
+}
+#social-links a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    border-radius: 50%;
+    transition: 0.3s; /*fazendo a transição do que esta dentro do hover*/
+}
+#social-links a:hover{ /*muda a cor de fundo do links a quando passar o mouse por cima*/
+    background-color: var(--highlight-color); 
+}
+footer{
+   padding: 24px 0px; /*espaço de 24px em cima e embaixo, e 0px nas duas laterais*/
+   text-align: center; /*centraliza o texto no centro*/
+   font-size: 14px; /*tamanho da fonte*/
+}
+
